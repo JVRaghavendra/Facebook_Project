@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Main Page</title>
+    <link href="~/Content/StyleSheet2.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div id="header">
+        <h1>Facebook</h1>
+        <h2>Welcome to @Session["CurrentUsername"]</h2>
+    </div>
+
+    <div id="container">
+
+        <div id="leftcontainer">
+            <h1>Left container</h1>
+        </div>
+
+        <div id="middlecontainer">
+            <h1>New Post</h1>
+
+            <div>
+                <label for="PostMessage">Type Your Post Here:</label>
+                <br />
+
+                <textarea id="PostMessage" name="PostMessage"></textarea>
+                <br />
+
+                <input type="button" id="button1" value="Post" />
+            </div>
+
+            <div id="existingposts">
+
+            </div>
+
+        </div>
+
+        <div id="rightcontainer">
+            <h1>Right container</h1>
+        </div>
+
+    </div>
+
+    <div id="footer">
+        All rights reserved &copy; 2015
+
+        <input type="hidden" id="CurrentUsername" value="@Session["CurrentUsername"]" />
+    </div>
+
+
+
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.js">
+    </script>
+
+    <script type="text/javascript">
+        $("#button1").click(fun1);
+
+        function fun1() {
+            var postdata = { "PostMessage": $("#PostMessage").val(), "PostedBy": $("#CurrentUsername").val() };
+
+            //alert(postdata.PostMessage);
+            //alert(postdata.PostedBy);
+
+            $.ajax({
+                url: '/Home/InsertPost',
+                type: 'POST',
+                data: postdata,
+                success: fun2,
+                error: fun3
+            });
+        }
+
+        function fun2(response) {
+            //alert(response);
+            $("#PostMessage").val("");
+            fun4();
+        }
+
+        function fun3(xhr) {
+            alert(xhr.responseText);
+        }
+
+        fun4();
+
+        function fun4() {
+
+            $.ajax({
+                url: '/api/Posts',
+                type: 'GET',
+                success: fun5,
+                error: fun6
+            });
+        }
+
+        function fun5(response) {
+
+            $("#existingposts").empty();
+
+            for (var i = 0; i < response.length; i++) {
+                var temp = "";
+                temp += "<div style='background-color: skyblue; margin-bottom:10px'>";
+
+                temp += "<span style='font-size:30px'>" + response[i].PostedBy + "</span><br>";
+
+                temp += "<span style='font-size:25px'>" + response[i].PostDateAndTime + "</span><br>";
+
+                temp += "<span style='font-size:20px'>" + response[i].PostMessage + "</span><br>";
+
+                temp += "</div>";
+
+                $("#existingposts").append(temp);
+            }
+        }
+
+        function fun6(xhr) {
+            alert(xhr.responseText);
+        }
+
+    </script>
+
+</body>
+</html>

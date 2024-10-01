@@ -1,0 +1,127 @@
+﻿@model Facebook.ViewModels.HomePageViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+
+    @Styles.Render("~/Content/css")
+
+    <link href="~/Content/themes/base/all.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    
+    <div id="outercontainer">
+
+        <div id="header">
+
+            <div id="leftheader">
+                <h1>Facebook</h1>
+            </div>
+
+            <div id="rightheader">
+                @using (Html.BeginForm("action1", "controller1", FormMethod.Post, new { id = "form1" }))
+                {
+                    @Html.LabelFor(model => model.LoginEmail)
+                    @:&nbsp;
+                    @Html.EditorFor(model => model.LoginEmail)
+                    @:&nbsp;
+
+                    @Html.LabelFor(model => model.LoginPassword)
+                    @:&nbsp;
+                    @Html.EditorFor(model => model.LoginPassword)
+
+                    <input type="submit" value="Sign in" id="button1" />
+                    @Html.ValidationSummary()
+                }
+            </div>
+
+        </div>
+
+        <div id="container">
+
+            <div id="leftcontent">
+                <h1>left content here</h1>
+            </div>
+
+            <div id="rightcontent">
+
+                <h1>Sign Up</h1>
+
+                @using (Html.BeginForm("action2", "controller2", FormMethod.Post, new { id = "form2" }))
+                {
+
+                    <div class="class1 firstnamediv">
+                        @Html.EditorFor(model => model.FirstName)
+                    </div>
+
+                    <div class="class1 lastnamediv">
+                        @Html.EditorFor(model => model.LastName)
+                    </div>
+
+                    <div class="class1">
+                        @Html.EditorFor(model => model.RegisterEmail)
+                    </div>
+
+                    <div class="class1">
+                        @Html.EditorFor(model => model.Mobile)
+                    </div>
+
+                    <div class="class1">
+                        @Html.EditorFor(model => model.RegisterPassword)
+                    </div>
+
+                    <div class="class1">
+                        @Html.EditorFor(model => model.ConfirmPassword)
+                    </div>
+
+                    <div class="class1">
+                        @Html.EditorFor(model => model.DateOfBirth)
+                    </div>
+
+                    <div style="margin-bottom:20px;">
+                        @Html.RadioButtonFor(model => model.Gender, "M") Male
+                        
+
+                        @Html.RadioButtonFor(model => model.Gender, "F") Female
+                    </div>
+
+                    <input type="submit" value="Sign up" id="btnRegister" />
+
+                    @Html.ValidationSummary()
+                }
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.js"></script>
+    
+    <script type="text/javascript">
+        $("#RegisterEmail").attr("placeholder", "Email");
+        $("#RegisterPassword").attr("placeholder", "Password");
+        $("#FirstName").attr("placeholder", "First Name");
+        $("#LastName").attr("placeholder", "Last Name");
+        $("#RegisterPassword").attr("placeholder", "Password");
+        $("#ConfirmPassword").attr("placeholder", "Re-type Password");
+        $("#Mobile").attr("placeholder", "Mobile");
+        $("#DateOfBirth").attr("placeholder", "Date of Birth");
+
+        $("#DateOfBirth").datepicker();
+    </script>
+
+    <script src="/Scripts/JavaScript1.js" type="text/javascript">
+    </script>
+
+</body>
+</html>

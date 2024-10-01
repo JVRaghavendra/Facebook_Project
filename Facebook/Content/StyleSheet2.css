@@ -1,0 +1,61 @@
+﻿* {
+    margin: 0px;
+}
+
+body, input, textarea, select {
+    font-family: 'Segoe UI';
+    font-size: 20px;
+}
+
+#header {
+    background-color: #0e32bf;
+    color: white;
+    padding-left: 20px;
+}
+
+    #header h2 {
+        color: yellow;
+    }
+
+#container {
+    background-color: #dea6a6;
+}
+
+#leftcontainer {
+    /*background-color: #5897ee;*/
+    height: auto;
+    min-height: 600px;
+    width: 20%;
+    float: left;
+    padding-left: 5px;
+}
+
+#middlecontainer {
+    /*background-color: #6ddee1;*/
+    height: auto;
+    min-height: 600px;
+    width: 50%;
+    float: left;
+}
+
+#rightcontainer {
+    /*background-color: #d6f150;*/
+    height: auto;
+    min-height: 600px;
+    width: 20%;
+    float: left;
+    padding-right: 5px;
+}
+
+#footer {
+    clear: left;
+    background-color: #f20c3d;
+    height: 50px;
+    text-align: center;
+    margin-top:10px;
+}
+
+#PostMessage {
+    width: 95%;
+    height: 150px;
+}

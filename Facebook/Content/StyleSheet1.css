@@ -1,0 +1,90 @@
+﻿body, input, textarea, select {
+    font-family: 'Segoe UI';
+    font-size: 18px;
+}
+
+* {
+    margin: 0px;
+}
+
+#outercontainer {
+    /*background-color: #eddf76;*/
+}
+
+#header {
+    background-color: #1e6ab4;
+    color: white;
+    height: 100px;
+}
+
+    #header #leftheader {
+        /*background-color: #808080;*/
+        width: 35%;
+        float: left;
+        height: 100px;
+    }
+
+    #header #rightheader {
+        /*background-color: #94f268;*/
+        width: 65%;
+        float: left;
+        height: 100px;
+        padding-top: 20px;
+    }
+
+#container {
+    clear: left;
+    height: 600px;
+}
+
+    #container #leftcontent {
+        /*background-color: #808080;*/
+        width: 40%;
+        float: left;
+        height: 600px;
+    }
+
+    #container #rightcontent {
+        /*background-color: #36d3c4;*/
+        width: 60%;
+        float: left;
+        height: 600px;
+    }
+
+#header #leftheader h1 {
+    margin-left: 20px;
+    margin-top:10px;
+    font-weight: bold;
+    font-size: 55px;
+}
+
+#header #rightheader input[type=text], #header #rightheader input[type=password] {
+    width: 160px;
+}
+
+.class1 {
+    margin-bottom: 20px;
+}
+
+    .class1 input, select {
+        font-size: 25px;
+        width: 500px;
+    }
+
+.firstnamediv, .lastnamediv {
+    float: left;
+    width: 240px;
+}
+
+    .firstnamediv input[type=text], .lastnamediv input[type=text] {
+        width: 240px;
+    }
+
+.firstnamediv {
+    margin-right: 20px;
+}
+
+.validation-summary-errors {
+    color: red;
+    font-size: 20px;
+}
